@@ -5,6 +5,12 @@ Deploy Spark on Kubernetes
 * Spark 2.0.0
 * Hadoop 2.7.3
 
+## Kubernetes
+
+```
+kubectl create -f spark-kubernetes.yaml
+```
+
 ## Docker
 
 Plagiarized from

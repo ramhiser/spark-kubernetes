@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "spark-cluster"
+  labels:
+    name: "spark-cluster"
+
+---
+
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: spark-master-controller
+spec:
+  replicas: 1
+  selector:
+    component: spark-master
+  template:
+    metadata:
+      labels:
+        component: spark-master
+    spec:
+      containers:
+        - name: spark-master
+          image: TODO
+          command: ["/spark-master"]
+          ports:
+            - containerPort: 7077
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 100m
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-master
+spec:
+  ports:
+    - port: 7077
+      targetPort: 7077
+  selector:
+    component: spark-master
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-webui
+  namespace: spark-cluster
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    component: spark-master
+
+---
+
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: spark-worker-controller
+spec:
+  replicas: 2
+  selector:
+    component: spark-worker
+  template:
+    metadata:
+      labels:
+        component: spark-worker
+    spec:
+      containers:
+        - name: spark-worker
+          image: TODO
+          command: ["/spark-worker"]
+          ports:
+            - containerPort: 8081
+          resources:
+            requests:
+              cpu: 100m
+
