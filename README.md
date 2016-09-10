@@ -5,6 +5,17 @@ Deploy Spark on Kubernetes
 * Spark 2.0.0
 * Hadoop 2.7.3
 
+## Docker
+
+Plagiarized from
+[k8s images README](https://github.com/kubernetes-incubator/application-images/blob/master/spark/README.md). I'll
+update soon. Sorry about that.
+
+* `spark-master` - Runs a Spark master in Standalone mode and exposes a port for
+Spark and a port for the WebUI.
+* `spark-worker` - Runs a Spark worer in Standalone mode and connects to the
+  Spark master via DNS name `spark-master`.
+
 ## Notes
 
 * Removed the GCS connector from the [Kubernetes base Docker image](https://github.com/kubernetes-incubator/application-images/tree/master/spark)
