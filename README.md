@@ -2,6 +2,14 @@
 
 Deploy Spark on Kubernetes
 
+* Spark 2.0.0
+* Hadoop 2.7.3
+
+## Notes
+
+* Removed the GCS connector from the [Kubernetes base Docker image](https://github.com/kubernetes-incubator/application-images/tree/master/spark)
+* Uses Hadoop 2.7.3. Mesos instead?
+
 ## License
 
 The `spark-kubernetes` project is licensed under the
