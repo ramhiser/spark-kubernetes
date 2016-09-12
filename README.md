@@ -13,9 +13,17 @@ kubectl create -f kubernetes/spark-kubernetes.yaml
 
 ## Docker
 
+The Docker images is available on Docker Hub. To pull the image, run:
+
+```
+docker pull ramhiser/spark:latest
+```
+
+The image was build with the following:
+
 ```
 cd docker
-docker build -t spark-kubernetes .
+docker build -t ramhiser/spark:latest .
 ```
 
 Plagiarized from
