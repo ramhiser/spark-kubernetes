@@ -8,10 +8,15 @@ Deploy Spark on Kubernetes
 ## Kubernetes
 
 ```
-kubectl create -f spark-kubernetes.yaml
+kubectl create -f kubernetes/spark-kubernetes.yaml
 ```
 
 ## Docker
+
+```
+cd docker
+docker build -t spark-kubernetes .
+```
 
 Plagiarized from
 [k8s images README](https://github.com/kubernetes-incubator/application-images/blob/master/spark/README.md). I'll
