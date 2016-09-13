@@ -1,12 +1,3 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: "spark-cluster"
-  labels:
-    name: "spark-cluster"
-
----
-
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
@@ -14,7 +5,8 @@ metadata:
 spec:
   replicas: 1
   selector:
-    component: spark-master
+    matchLabels:
+      component: spark-master
   template:
     metadata:
       labels:
@@ -22,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spark-master
-          image: TODO
+          image: ramhiser/spark:latest
           command: ["/spark-master"]
           ports:
             - containerPort: 7077
@@ -67,7 +59,8 @@ metadata:
 spec:
   replicas: 2
   selector:
-    component: spark-worker
+    matchLabels:
+      component: spark-worker
   template:
     metadata:
       labels:
@@ -75,7 +68,7 @@ spec:
     spec:
       containers:
         - name: spark-worker
-          image: TODO
+          image: ramhiser/spark:latest
           command: ["/spark-worker"]
           ports:
             - containerPort: 8081
