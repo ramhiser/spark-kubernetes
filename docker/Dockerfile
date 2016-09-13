@@ -28,5 +28,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+ADD common.sh spark-master spark-worker /
 ADD spark-defaults.conf /opt/spark/conf/spark-defaults.conf
 ENV PATH $PATH:/opt/spark/bin
