@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spark-master
-          image: ramhiser/spark:latest
+          image: ramhiser/spark:2.0.0
           command: ["/spark-master"]
           ports:
             - containerPort: 7077
@@ -68,7 +68,7 @@ spec:
     spec:
       containers:
         - name: spark-worker
-          image: ramhiser/spark:latest
+          image: ramhiser/spark:2.0.0
           command: ["/spark-worker"]
           ports:
             - containerPort: 8081

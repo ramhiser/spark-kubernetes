@@ -53,14 +53,14 @@ print word_counts.collect()
 The Docker images is available on Docker Hub. To pull the image, run:
 
 ```
-docker pull ramhiser/spark:latest
+docker pull ramhiser/spark:2.0.0
 ```
 
 The image was build with the following:
 
 ```
 cd docker
-docker build -t ramhiser/spark:latest .
+docker build -t ramhiser/spark:2.0.0 .
 ```
 
 Plagiarized from
