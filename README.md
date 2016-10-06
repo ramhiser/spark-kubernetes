@@ -2,7 +2,7 @@
 
 Deploy Spark on Kubernetes
 
-* Spark 2.0.0
+* Spark 2.0.1
 * Hadoop 2.7.3
 
 ## Kubernetes
@@ -53,14 +53,15 @@ print word_counts.collect()
 The Docker images is available on Docker Hub. To pull the image, run:
 
 ```
-docker pull ramhiser/spark:2.0.0
+docker pull ramhiser/spark:2.0.1
 ```
 
 The image was build with the following:
 
 ```
 cd docker
-docker build -t ramhiser/spark:2.0.0 .
+docker build -t ramhiser/spark:2.0.1 .
+docker push ramhiser/spark:2.0.1
 ```
 
 Plagiarized from
@@ -74,7 +75,7 @@ Spark and a port for the WebUI.
 ## Notes
 
 * Removed the GCS connector from the [Kubernetes base Docker image](https://github.com/kubernetes-incubator/application-images/tree/master/spark)
-* Uses Hadoop 2.7.3. Mesos instead?
+* Uses Hadoop 2.7.3.
 
 ## License
 
